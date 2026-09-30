@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>98.7 KDJO | San Diego Internet Radio</title>
+  <meta name="description" content="98.7 KDJO - Independent San Diego internet radio, streaming daily from 6 AM to 2 AM with sports talk, Left On Base, and independent-artist DJ rotations.">
+
+  <!-- Open Graph / Facebook / Discord / iMessage -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="98.7 KDJO">
+  <meta property="og:url" content="https://kdjo.org/">
+  <meta property="og:title" content="98.7 KDJO | San Diego Internet Radio">
+  <meta property="og:description" content="Independent internet radio streaming daily from 6 AM to 2 AM: San Diego sports talk, Left On Base, and DJ rotations.">
+  <meta property="og:image" content="https://kdjo.org/images/default.png">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kdjo.org/">
+  <meta name="twitter:title" content="98.7 KDJO | San Diego Internet Radio">
+  <meta name="twitter:description" content="Independent internet radio streaming daily from 6 AM to 2 AM: San Diego sports talk, Left On Base, and DJ rotations.">
+  <meta name="twitter:image" content="https://kdjo.org/images/default.png">
+
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/svg+xml" href="images/browserico.svg?v=99">
+  <link rel="alternate icon" href="/images/browserico.svg?v=99">
+  <link rel="apple-touch-icon" href="images/browserico.svg?d9">
+
+  <!-- Cookie & ad consent (must load BEFORE AdSense) -->
+  <script src="assets/js/consent.js?v=1"></script>
+
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7239298647673410" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Space+Grotesk:wght@500;700&family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="assets/css/main.css?v=15">
+
+  <!-- Self-Contained Minimize & Floating Button Styles -->
+  <style>
+    .live-broadcast-pill {
+      background: #FFFFFF !important;
+      border: 3px solid var(--border-dark, #1C130E) !important;
+      border-radius: 9999px !important;
+      box-shadow: 2px 3px 0px var(--border-dark, #1C130E) !important;
+      padding: 0.35rem 1.1rem !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 700 !important;
+      color: var(--ink, #1C130E) !important;
+      margin-bottom: 0.65rem !important;
+      user-select: none !important;
+    }
+
+    .section-collapsible {
+      display: block;
+    }
+
+    .section-collapsible.minimized {
+      display: none !important;
+    }
+
+    .box-collapsible {
+      display: block;
+    }
+
+    .box-collapsible.minimized {
+      display: none !important;
+    }
+
+    .section-wrap {
+      transition: padding 0.2s ease;
+    }
+
+    .section-wrap.is-minimized {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+
+    .section-wrap.is-minimized .section-title-wrap {
+      margin-bottom: 0 !important;
+    }
+
+    .dj-box {
+      transition: padding 0.2s ease, margin 0.2s ease;
+    }
+
+    .dj-box.is-minimized {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+      margin-bottom: 1.25rem !important;
+    }
+
+    .dj-box.is-minimized .box-header {
+      margin-bottom: 0 !important;
+    }
+
+    /* Floating Scroll to Bottom Button (Left Side) */
+    .scroll-to-bottom {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-white, #fffdf7);
+      border: 3px solid var(--ink2, #1C130E);
+      box-shadow: var(--shadow-pillbk, 3px 4px 0px #2f241c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--ink, #1C130E);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-snap, all 0.18s cubic-bezier(0.2, 0.9, 0.3, 1));
+      z-index: 90;
+    }
+
+    .scroll-to-bottom:hover {
+      transform: translateY(2px);
+    }
+
+    .scroll-to-bottom.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Banner -->
+  <header class="top-header-banner">
+    <div class="header-inner">
+      
+      <!-- Left: 98.7 FM KDJO.ORG with Speed Lines -->
+      <a href="#hero" class="brand-logo-block" aria-label="KDJO Radio Home">
+        <div class="brand-freq-row">
+          <span class="freq-number">98.7</span>
+          <div class="fm-block">
+            <span class="fm-text">FM</span>
+            <div class="speed-lines">
+              <div class="speed-line"></div>
+              <div class="speed-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="brand-domain">KDJO.ORG</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px; color:var(--ink2);">Internet Radio</div>
+      </a>
+
+      <!-- Center: Subtitle + Nav Pills -->
+      <div class="header-center-nav">
+        <div class="live-broadcast-pill">
+          <span class="live-dot"></span> Internet Radio &middot; Daily 6 AM &ndash; 2 AM
+        </div>
+
+        <nav class="nav-pill-group" aria-label="Main Navigation">
+          <a href="#tuner-station" class="nav-pill active" id="navTuneIn">Radio</a>
+          <a href="#schedule" class="nav-pill">Schedule</a>
+          <a href="#about-us" class="nav-pill">DJs</a>
+          <a href="#left-on-base" class="nav-pill">Left On Base</a>
+          <a href="#resident-artist" class="nav-pill">Visual Designer</a>
+          <a href="#gallery" class="nav-pill">Shops</a>
+          <a href="#contact" class="nav-pill">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Right: Robot SVG Preserving Sticker Animation -->
+      <div class="header-sticker-col">
+        <div class="sd-sticker" id="sdSticker" title="Broadcasting right out of San Diego, CA!">
+          <img src="images/robot.svg" alt="KDJO Robot" style="height: 150px; width: auto; display: block;">
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle navigation drawer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div style="display: flex; justify-content: center; width: 100%;">
+        <div class="live-broadcast-pill">
+          <span class="live-dot"></span> Internet Radio &middot; Daily 6 AM &ndash; 2 AM
+        </div>
+      </div>
+      <a href="#tuner-station" class="nav-pill active" style="text-align:center;">Radio</a>
+      <a href="#schedule" class="nav-pill" style="text-align:center;">Schedule</a>
+      <a href="#about-us" class="nav-pill" style="text-align:center;">DJs &amp; Residents</a>
+      <a href="#left-on-base" class="nav-pill" style="text-align:center;">Left On Base</a>
+      <a href="#resident-artist" class="nav-pill" style="text-align:center;">Visual Designer</a>
+      <a href="#gallery" class="nav-pill" style="text-align:center;">Record Shops</a>
+      <a href="about.html" class="nav-pill" style="text-align:center;">About Us</a>
+      <a href="#contact" class="nav-pill" style="text-align:center;">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Radio Player Hero Stage -->
+    <section class="hero-stage" id="hero">
+
+      <!-- Player Frame Container -->
+      <div class="player-embed-container" id="tuner-station">
+        <iframe 
+          src="emb.html?v=29" 
+          id="kdjo-player-frame"
+          class="player-iframe" 
+          title="98.7 KDJO Radio Player" 
+          allow="autoplay; encrypted-media" 
+          scrolling="no" 
+          loading="eager">
+        </iframe>
+      </div>
+
+      <!-- Lead Station Card & Stats -->
+      <div style="max-width: 1240px; width: 100%; margin-top: 2.5rem; z-index: 10;">
+        <div class="dj-box" style="background: #FFFFFF; border: 4px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-box); text-align: center;">
+          
+          <!-- Card Header & Minimize Toggle -->
+          <div class="box-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <h2 style="font-family: 'Righteous', cursive; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--ink); margin: 0;">
+              98.7 KDJO — San Diego Internet Radio
+            </h2>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+              <button class="box-toggle-btn" data-target="station-info-content" aria-expanded="true">
+                <i class="fa-solid fa-chevron-up"></i> <span>Minimize Info</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Collapsible Content -->
+          <div class="box-collapsible" id="station-info-content">
+            <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1rem; max-width: 980px; margin-left: auto; margin-right: auto;">
+              KDJO 98.7 is an <strong>internet-only radio station</strong> (not an FM broadcast) out of San Diego, streaming every day from <strong>6 AM to 2 AM</strong>. It&rsquo;s my own creation and totally independent, so that means I need money :/ The stream itself has no ad breaks (the only ads are the small banners on this website), and the music comes from <strong>independent artists</strong> that my team and I think are neat. We hand-select rotations spanning surf rock, indie pop, underground hip-hop, vaporwave, and more.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); max-width: 980px; margin-left: auto; margin-right: auto; margin-bottom: 1.8rem;">
+              We’re also the exclusive home of <strong>Left On Base</strong> for general yap about Padres baseball, San Diego FC, and SDSU/UCSD college sports. Hit play up top to listen live, or scroll down to check out our schedule and DJ archives. If you wanna add some songs, feel free to use the contact form below—Spotify playlists are ideal, but I’ll take anything! Just keep in mind all shows and times are subject to change based on vibes. <a href="about.html" style="color: var(--rose-dark); font-weight: 700;">More about the station &rarr;</a>
+            </p>
+
+            <!-- Station Stats Grid (Color-coded individual boxes) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div style="background: #FFE4E6; border: 2.5px solid var(--border-dark); border-radius: var(--radius-md); padding: 0.9rem; box-shadow: 2px 3px 0 var(--border-dark);">
+                <div style="font-weight: 900; font-size: 1.3rem; color: var(--rose-dark); font-family: 'Space Grotesk';">6 AM – 2 AM</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Daily Airtime</div>
+              </div>
+              <div style="background: #FFEDD5; border: 2.5px solid var(--border-dark); border-radius: var(--radius-md); padding: 0.9rem; box-shadow: 2px 3px 0 var(--border-dark);">
+                <div style="font-weight: 900; font-size: 1.3rem; color: var(--coral-dark); font-family: 'Space Grotesk';">San Diego</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Broadcast Origin</div>
+              </div>
+              <div style="background: #DCFCE7; border: 2.5px solid var(--border-dark); border-radius: var(--radius-md); padding: 0.9rem; box-shadow: 2px 3px 0 var(--border-dark);">
+                <div style="font-weight: 900; font-size: 1.3rem; color: var(--panel-olive-dark); font-family: 'Space Grotesk';">100% Indie</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Independent Artists</div>
+              </div>
+              <div style="background: #E0F2FE; border: 2.5px solid var(--border-dark); border-radius: var(--radius-md); padding: 0.9rem; box-shadow: 2px 3px 0 var(--border-dark);">
+                <div style="font-weight: 900; font-size: 1.3rem; color: var(--ink); font-family: 'Space Grotesk';">Weekly Mixes&nbsp;</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Archived Mixes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ad Container for Home (Permanently outside the collapsible card) -->
+        <div class="ad-container" data-slot="3287216264" style="margin-top: 1.5rem; border: 3.5px solid var(--border-dark); border-radius: var(--radius-md); overflow: hidden; background: #FFFDF8; min-height: 120px;">
+          <ins class="adsbygoogle"
+               style="display:block; width:100%;"
+               data-ad-client="ca-pub-7239298647673410"
+               data-ad-slot="3287216264"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weekly Broadcast Schedule -->
+    <section class="section-wrap" id="schedule">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fa-solid fa-calendar-days"></i> Featured Shows &amp; Daily Rotation</span>
+        <h2 class="section-heading">Weekly Broadcast Schedule</h2>
+        <p class="section-desc">Explore our 20-hour daily programming schedule curated by resident and guest DJs from 6:00 AM to 2:00 AM daily.</p>
+        <div>
+          <button class="section-toggle-btn" data-target="schedule-content" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize Schedule</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Container for Schedule (Timetable only) -->
+      <div class="section-collapsible" id="schedule-content">
+        <div class="schedule-box-wrap">
+          <!-- Day Filter Buttons -->
+          <div class="schedule-day-tabs" role="tablist">
+            <button class="day-tab-btn" data-day="monday">Monday</button>
+            <button class="day-tab-btn" data-day="tuesday">Tuesday</button>
+            <button class="day-tab-btn" data-day="wednesday">Wednesday</button>
+            <button class="day-tab-btn" data-day="thursday">Thursday</button>
+            <button class="day-tab-btn" data-day="friday">Friday</button>
+            <button class="day-tab-btn" data-day="saturday">Saturday</button>
+            <button class="day-tab-btn" data-day="sunday">Sunday</button>
+          </div>
+
+          <!-- Dynamic Schedule Grid -->
+          <div class="schedule-cards-grid" id="schedule-grid"></div>
+
+          <!-- NoScript SEO Fallback -->
+          <noscript>
+            <div style="padding: 1.5rem; background: var(--bg-cream-tint); border: 2.5px solid var(--border-dark); border-radius: var(--radius-md); margin-top: 1rem;">
+              <h3 style="margin-bottom: 0.75rem;">Full Weekly Schedule (Monday Highlights)</h3>
+              <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                <li><strong>30s</strong> &mdash; 6:00 AM – 8:00 AM</li>
+                <li><strong>Traditional Jazz</strong> &mdash; 8:00 AM – 10:00 AM</li>
+                <li><strong>Surf</strong> &mdash; 10:00 AM – 12:00 PM</li>
+                <li><strong>Indie Pop</strong> &mdash; 12:00 PM – 2:00 PM</li>
+                <li><strong>Local Sound</strong> &mdash; 2:00 PM – 4:00 PM</li>
+                <li><strong>Feature DJ</strong> &mdash; 4:00 PM – 5:00 PM</li>
+                <li><strong>Feature DJ 2</strong> &mdash; 5:00 PM – 6:00 PM</li>
+                <li><strong>Alternative Rock</strong> &mdash; 6:00 PM – 7:00 PM</li>
+                <li><strong>Hip-hop</strong> &mdash; 7:00 PM – 9:00 PM</li>
+                <li><strong>Vaporwave</strong> &mdash; 9:00 PM – 11:00 PM</li>
+                <li><strong>Country & Americana</strong> &mdash; 11:00 PM – 2:00 AM</li>
+              </ul>
+            </div>
+          </noscript>
+        </div>
+      </div>
+
+      <!-- Schedule Ad Slot (Living OUTSIDE the collapsible container so it is never hidden) -->
+      <div class="ad-container" data-slot="3287216264" style="margin-top: 1.75rem; border: 3.5px solid var(--border-dark); border-radius: var(--radius-md); overflow: hidden; background: #FFFDF8; min-height: 120px;">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%;"
+             data-ad-client="ca-pub-7239298647673410"
+             data-ad-slot="3287216264"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </section>
+
+    <!-- About Us & DJ Selectors Section -->
+    <section class="section-wrap" id="about-us">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fa-solid fa-compact-disc"></i> Current DJs</span>
+        <h2 class="section-heading">About Us &amp; Residents</h2>
+        <p class="section-desc">Independent San Diego internet radio dedicated to independent artists and underground rotations.</p>
+        
+        <!-- Side-by-Side Flex Container for Action Buttons -->
+        <div style="display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+          <button class="section-toggle-btn" data-target="about-content" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize Section</span>
+          </button>
+          <button class="section-toggle-btn" id="masterDjToggleBtn" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize DJs</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Container for About Us -->
+      <div class="section-collapsible" id="about-content">
+        
+        <!-- Resident DJ: Dojo Daniel -->
+        <div class="dj-box" style="background: #FFFFFF; border: 4px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-box); text-align: center; margin-bottom: 2.5rem;">
+          <div class="box-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <h3 style="font-family: 'Righteous', cursive; font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--ink); margin: 0;">
+              Resident DJ: Dojo Daniel
+            </h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+              <span style="background: var(--bg-white); border: 2px solid var(--border-dark); padding: 0.35rem 1rem; border-radius: var(--radius-pill); font-weight: 800; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--border-dark); display: inline-block;">
+                Lead Host &amp; Sound Curator
+              </span>
+              <button class="box-toggle-btn" data-target="dojo-content" aria-expanded="true">
+                <i class="fa-solid fa-chevron-up"></i> <span>Minimize DJ</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="box-collapsible" id="dojo-content">
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+              Holding down the station's daily music flow and rotation. Explore past recordings, live club archives, and studio playlists across your platform of choice:
+            </p>
+
+            <div class="schedule-cards-grid">
+              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="schedule-card box-pink" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic01.jpg" alt="Spotify Selector Series" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Spotify</span>
+                  <h3>Curated Selects</h3>
+                </div>
+              </a>
+              <a href="https://soundcloud.com/dojo_daniel" target="_blank" rel="noopener noreferrer" class="schedule-card box-orange" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic02.jpg" alt="SoundCloud Live Mixes" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--coral-dark);">SoundCloud</span>
+                  <h3>Live Recordings</h3>
+                </div>
+              </a>
+              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="schedule-card box-purple" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic03.jpg" alt="Spotify Station Vault" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Spotify</span>
+                  <h3>Station Vault</h3>
+                </div>
+              </a>
+              <a href="https://dojodaniel.bandcamp.com" target="_blank" rel="noopener noreferrer" class="schedule-card box-green" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic04.jpg" alt="Bandcamp Discography" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--panel-olive-dark);">Bandcamp</span>
+                  <h3>Original Cuts</h3>
+                </div>
+              </a>
+              <a href="https://www.mixcloud.com/DojoDaniel/" target="_blank" rel="noopener noreferrer" class="schedule-card box-blue" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic05.jpg" alt="Mixcloud Radio Replays" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--ink);">Mixcloud</span>
+                  <h3>Radio Replays</h3>
+                </div>
+              </a>
+              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="schedule-card box-yellow" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic06.jpg" alt="Spotify Rotation Mixes" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Spotify</span>
+                  <h3>Heavy Rotation</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured DJ 1 Section -->
+        <div class="dj-box" style="background: #FFFFFF; border: 4px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-box); text-align: center; margin-bottom: 2.5rem;">
+          <div class="box-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <h3 style="font-family: 'Righteous', cursive; font-size: clamp(1.8rem, 3.5vw, 2.2rem); color: var(--ink); margin: 0;">
+            Featured DJ 1: Dojo Dannys Fav Hits </h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+              <span style="background: var(--bg-white); border: 2px solid var(--border-dark); padding: 0.3rem 0.9rem; border-radius: var(--radius-pill); font-weight: 800; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--border-dark); display: inline-block;">
+                Guest Selector
+              </span>
+              <button class="box-toggle-btn" data-target="dj1-content" aria-expanded="true">
+                <i class="fa-solid fa-chevron-up"></i> <span>Minimize DJ 1</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="box-collapsible" id="dj1-content">
+            <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.25rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+              Bringing high-energy sets and deep crates to the KDJO lineup. Stream the exclusive guest curation on Spotify:
+            </p>
+
+            <div class="schedule-cards-grid">
+              <a href="https://open.spotify.com/playlist/05UCWfxcTzn2DxPXINzznu?si=7bbf7585009941e0&dlsi=304f3bf6a0634a96" target="_blank" rel="noopener noreferrer" class="schedule-card box-pink" style="text-decoration:none;">
+                <div class="image fit"><img src="images/k.webp" alt="Featured DJ 1 Playlist" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Spotify Playlist</span>
+                  <h3>Featured Mix 1</h3>
+                </div>
+              </a>
+              <a href="#contact" class="schedule-card box-green" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic01.jpg" alt="KDJO Station Sponsor" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--panel-olive-dark);">Partner</span>
+                  <h3>KDJO Station Sponsor</h3>
+                </div>
+              </a>
+              <a href="#contact" class="schedule-card box-orange" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic02.jpg" alt="Advertise With Us" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--coral-dark);">Partner</span>
+                  <h3>Advertise With Us</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured DJ 2 Section -->
+        <div class="dj-box" style="background: #FFFFFF; border: 4px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-box); text-align: center; margin-bottom: 2.5rem;">
+          <div class="box-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <h3 style="font-family: 'Righteous', cursive; font-size: clamp(1.8rem, 3.5vw, 2.2rem); color: var(--ink); margin: 0;">
+            Featured DJ 2: Jizz Jazz </h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+              <span style="background: var(--bg-white); border: 2px solid var(--border-dark); padding: 0.3rem 0.9rem; border-radius: var(--radius-pill); font-weight: 800; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--border-dark); display: inline-block;">
+                Guest Selector
+              </span>
+              <button class="box-toggle-btn" data-target="dj2-content" aria-expanded="true">
+                <i class="fa-solid fa-chevron-up"></i> <span>Minimize DJ 2</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="box-collapsible" id="dj2-content">
+            <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.25rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+              A staple in the Southern California independent scene, spinning late-night vibes, laid-back lo-fi, and timeless downtempo rhythms:
+            </p>
+
+            <div class="schedule-cards-grid">
+              <a href="https://open.spotify.com/playlist/2o1E4cxysO7LHeIyjrmDwM?si=4ef7e221e6be4c5a&dlsi=7c360a5996ae448d" target="_blank" rel="noopener noreferrer" class="schedule-card box-purple" style="text-decoration:none;">
+                <div class="image fit"><img src="images/dj2.webp" alt="Featured DJ 2 Playlist" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Spotify Playlist</span>
+                  <h3>Featured Mix 2</h3>
+                </div>
+              </a>
+              <a href="#contact" class="schedule-card box-green" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic03.jpg" alt="KDJO Station Sponsor" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--panel-olive-dark);">Partner</span>
+                  <h3>KDJO Station Sponsor</h3>
+                </div>
+              </a>
+              <a href="#contact" class="schedule-card box-yellow" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic04.jpg" alt="Advertise With Us" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--coral-dark);">Partner</span>
+                  <h3>Advertise With Us</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured DJ 3 Section -->
+        <div class="dj-box" style="background: #FFFFFF; border: 4px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-box); text-align: center;">
+          <div class="box-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <h3 style="font-family: 'Righteous', cursive; font-size: clamp(1.8rem, 3.5vw, 2.2rem); color: var(--ink); margin: 0;">
+              Featured DJ HPC AKA Featured DJ 3
+            </h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+              <span style="background: var(--bg-white); border: 2px solid var(--border-dark); padding: 0.3rem 0.9rem; border-radius: var(--radius-pill); font-weight: 800; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--border-dark); display: inline-block;">
+                Guest Selector
+              </span>
+              <button class="box-toggle-btn" data-target="dj3-content" aria-expanded="true">
+                <i class="fa-solid fa-chevron-up"></i> <span>Minimize DJ 3</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="box-collapsible" id="dj3-content">
+            <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.25rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+              Championing forward-thinking electronic sounds and heavy basslines:
+            </p>
+
+            <div class="schedule-cards-grid">
+              <a href="https://open.spotify.com/playlist/3VzNeRXyVV0BBZSUZsnAb0?si=80df65ae32664964&dlsi=c759e3fe766f4a8a" target="_blank" rel="noopener noreferrer" class="schedule-card box-blue" style="text-decoration:none;">
+                <div class="image fit"><img src="images/dj3.webp" alt="Featured DJ 3 Playlist" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Spotify Playlist</span>
+                  <h3>Featured Mix 3</h3>
+                </div>
+              </a>
+              <a href="#contact" class="schedule-card box-green" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic05.jpg" alt="KDJO Station Sponsor" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--panel-olive-dark);">Partner</span>
+                  <h3>KDJO Station Sponsor</h3>
+                </div>
+              </a>
+              <a href="#contact" class="schedule-card box-orange" style="text-decoration:none;">
+                <div class="image fit"><img src="images/pic01.jpg" alt="Advertise With Us" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--coral-dark);">Partner</span>
+                  <h3>Advertise With Us</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Left On Base Flagship Section -->
+    <section class="section-wrap" id="left-on-base">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fa-solid fa-baseball"></i> San Diego Sports Talk</span>
+        <h2 class="section-heading">Left On Base</h2>
+        <p class="section-desc">Unfiltered analysis covering Padres baseball, San Diego FC, and Southern California athletics.</p>
+        <div>
+          <button class="section-toggle-btn" data-target="lob-content" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize Show</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Container for Left On Base -->
+      <div class="section-collapsible" id="lob-content">
+        <div class="lob-banner">
+          <div>
+            <span class="lob-badge"><i class="fa-solid fa-baseball"></i> KDJO Flagship Show</span>
+            <h2 class="lob-title" style="margin-top: 0.5rem;">Left On Base</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1rem;">
+              <strong>Left On Base</strong> is KDJO's only sports talk program, offering our trash insight into Southern California sports culture. We break down the latest series, transactions, and tactical moves for the <strong>San Diego Padres</strong>, And in the offseason Here we also follow the seasons and roster builds of <strong>San Diego FC</strong> in Major League Soccer, and track SDSU/USD/UCSD's colleges hoop Programs.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Episodes feature regular takes, analytical breakdowns, and listener debates. Subscribe on YouTube or launch the latest episode preview below:
+            </p>
+
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <a href="https://www.youtube.com/@LeftOnBaseFM" target="_blank" rel="noopener noreferrer" class="nav-pill" style="background: #FF0000; color: #FFF; border-color: var(--border-dark);">
+                <i class="fa-brands fa-youtube"></i> Watch More on YouTube
+              </a>
+              <a href="#contact" class="nav-pill">
+                <i class="fa-solid fa-envelope"></i> Send Show Note
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <!-- YouTube Facade Player Container -->
+            <div id="yt-facade" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; border: 3.5px solid var(--border-dark); box-shadow: var(--shadow-box); background: #000; cursor: pointer; margin-bottom: 1.25rem;" onclick="loadYouTubeVideo()">
+              <img id="yt-thumb" src="https://img.youtube.com/vi/0T7W1_Bm0DY/hqdefault.jpg" alt="Left On Base Podcast Preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.88;" loading="lazy">
+              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; background: rgba(33,33,33,0.88); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+                <div style="border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #fff;"></div>
+              </div>
+            </div>
+
+            <!-- Cassette Mockup -->
+            <div class="cassette-mockup">
+              <div class="cassette-label">
+                <div style="font-weight:900; font-size:1.1rem; letter-spacing:0.05em;">LEFT ON BASE &bull; SAN DIEGO SPORTS TALK</div>
+                <div style="font-size:0.85rem; font-family:'Space Grotesk'; margin: 4px 0;">Padres, San Diego FC &amp; SoCal Athletics</div>
+                <div style="display:flex; justify-content:center; gap:2rem; margin-top:8px;">
+                  <span style="font-family:'VT323'; font-size:1.35rem;">WEEKLY EPISODES</span>
+                  <span style="font-family:'VT323'; font-size:1.35rem;">STEREO HI-FI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated Visual Designer Section -->
+    <section class="section-wrap" id="resident-artist">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fa-solid fa-palette"></i> Station Art &amp; Visuals</span>
+        <h2 class="section-heading">Visual Designer</h2>
+        <p class="section-desc">Meet the creative mind steering the visual aesthetic, original character illustrations, custom stickers, and show graphics of 98.7 KDJO.</p>
+        <div>
+          <button class="section-toggle-btn" data-target="artist-section-content" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize Visuals</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Container for Resident Visual Designer Section -->
+      <div class="section-collapsible" id="artist-section-content">
+        <div class="dj-box" style="background: #FFFFFF; border: 4px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-box); text-align: center;">
+          <div class="box-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <h3 style="font-family: 'Righteous', cursive; font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--ink); margin: 0;">
+              Natalie P (@nat_oliee)
+            </h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+              <a href="https://www.instagram.com/nat_oliee/" target="_blank" rel="noopener noreferrer" style="background: #FFFFFF; border: 2.5px solid var(--border-dark); padding: 0.35rem 1rem; border-radius: var(--radius-pill); font-weight: 800; font-size: 0.85rem; color: var(--ink); text-decoration: none; box-shadow: 2px 2px 0 var(--border-dark); display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-snap);">
+                <i class="fa-brands fa-instagram" style="color: var(--rose); font-size: 1rem;"></i> Follow on Instagram
+              </a>
+              <button class="box-toggle-btn" data-target="natalie-details-content" aria-expanded="true">
+                <i class="fa-solid fa-chevron-up"></i> <span>Minimize Artist</span>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="box-collapsible" id="natalie-details-content">
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+              Sole art director behind 98.7 KDJO's visuals — illustrating original character artwork, stickers, flyers, and station brand identity. Click any card below to view her work and profile on Instagram:
+            </p>
+
+            <div class="schedule-cards-grid">
+              <!-- Card 1: Core Art Direction & Identity (Links to Instagram) -->
+              <a href="https://www.instagram.com/nat_oliee/" target="_blank" rel="noopener noreferrer" class="schedule-card box-yellow" style="text-decoration:none;">
+                <div class="image fit"><img src="images/art1.png" alt="Station Art Direction by Natalie P" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--coral-dark);">Creative Direction &bull; @nat_oliee</span>
+                  <h3>Station Visual Identity</h3>
+                  <div class="time-block">
+                    <strong>Sole Art Director: Natalie P</strong>
+                    Original website illustrations, character designs &amp; station brand aesthetic.
+                  </div>
+                </div>
+              </a>
+
+              <!-- Card 2: Print, Merch & Stickers (Links to Instagram) -->
+              <a href="https://www.instagram.com/nat_oliee/" target="_blank" rel="noopener noreferrer" class="schedule-card box-purple" style="text-decoration:none;">
+                <div class="image fit"><img src="images/art2.png" alt="Stickers and Merch by Natalie P" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--rose-dark);">Print &amp; Merch &bull; @nat_oliee</span>
+                  <h3>Stickers &amp; Physical Drops</h3>
+                  <div class="time-block">
+                    <strong>Custom Station Goods</strong>
+                    Collectible sticker runs, cassette j-cards &amp; physical print designs.
+                  </div>
+                </div>
+              </a>
+
+              <!-- Card 3: Flyers, Posters & Broadcast Graphics (Links to Instagram) -->
+              <a href="https://www.instagram.com/nat_oliee/" target="_blank" rel="noopener noreferrer" class="schedule-card box-coral" style="text-decoration:none;">
+                <div class="image fit"><img src="images/art3.png" alt="Show Posters and Flyers by Natalie P" loading="lazy"></div>
+                <div class="album-info">
+                  <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--coral-dark);">Broadcast Media &bull; @nat_oliee</span>
+                  <h3>Flyers &amp; Show Graphics</h3>
+                  <div class="time-block">
+                    <strong>Promotional Visuals</strong>
+                    Episode banners, promotional event flyers &amp; live stream art direction.
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where We Dig: San Diego Record Shops Section -->
+    <section class="section-wrap" id="gallery">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fa-solid fa-record-vinyl"></i> Local Crates &amp; Community</span>
+        <h2 class="section-heading">Where We Dig: San Diego Record Shops</h2>
+        <p class="section-desc">KDJO’s taste is shaped by real Records found across Southern California. Support your local brick-and-mortar shops keeping them alive.</p>
+        <div>
+          <button class="section-toggle-btn" data-target="gallery-content" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize Record Shops</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Container for Record Shops -->
+      <div class="section-collapsible" id="gallery-content">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;">
+
+          <!-- Shop 1: Folk Arts Rare Records -->
+          <div style="background: #FFFBEB; border: 3.5px solid var(--border-dark); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-box); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
+                <a href="https://maps.google.com/?q=Folk+Arts+Rare+Records+3610+University+Ave+San+Diego+CA+92104" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: var(--bg-header); border: 2px solid var(--border-dark); border-radius: var(--radius-pill); padding: 0.25rem 0.75rem; font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 0.35rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--rose-dark);"></i> City Heights
+                </a>
+                <span style="font-family: 'VT323'; font-size: 1.2rem; color: var(--rose-dark); letter-spacing: 1px;">EST. 1967</span>
+              </div>
+              
+              <h3 style="font-family: 'Righteous', cursive; font-size: 1.5rem; color: var(--ink); margin: 0.25rem 0 0.5rem;">Folk Arts Rare Records</h3>
+              <div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.85rem; color: var(--coral-dark); text-transform: uppercase; margin-bottom: 0.85rem;">
+                Jazz &bull; Traditional Blues &bull; Obscure 45s
+              </div>
+              
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                San Diego’s oldest and most revered crate digging institution. A go-to for the jazz, surf rock, and 7-inch soul that inspire our rotations.
+              </p>
+            </div>
+
+            <div style="border-top: 2px dashed #E5E7EB; padding-top: 0.9rem; font-size: 0.85rem; font-family: 'Space Grotesk'; display: flex; justify-content: space-between; align-items: center;">
+              <a href="https://maps.google.com/?q=Folk+Arts+Rare+Records+3610+University+Ave+San+Diego+CA+92104" target="_blank" rel="noopener noreferrer" style="color: var(--ink); font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-map-pin" style="color: var(--rose);"></i> 3610 University Ave
+              </a>
+              <span style="font-weight: 700; color: var(--text-muted);">Station Staple <i class="fa-solid fa-compact-disc" style="color: var(--rose);"></i></span>
+            </div>
+          </div>
+
+          <!-- Shop 2: Re-Animated Records (La Mesa) -->
+          <div style="background: #FFF1F2; border: 3.5px solid var(--border-dark); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-box); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
+                <a href="https://maps.google.com/?q=Re-Animated+Records+8320+La+Mesa+Blvd+La+Mesa+CA+91942" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #FFD2CC; border: 2px solid var(--border-dark); border-radius: var(--radius-pill); padding: 0.25rem 0.75rem; font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 0.35rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--rose-dark);"></i> La Mesa Village
+                </a>
+                <span style="font-family: 'VT323'; font-size: 1.2rem; color: var(--rose-dark); letter-spacing: 1px;">CULT WAX</span>
+              </div>
+              
+              <h3 style="font-family: 'Righteous', cursive; font-size: 1.5rem; color: var(--ink); margin: 0.25rem 0 0.5rem;">Re-Animated Records</h3>
+              <div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.85rem; color: var(--rose-dark); text-transform: uppercase; margin-bottom: 0.85rem;">
+                Horror OSTs &bull; Punk &bull; Metal &bull; Synth
+              </div>
+              
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                A treasure trove in La Mesa Village for vintage synth soundscapes, cult horror movie soundtracks, punk 7-inches, and oddball late-night vinyl gems.
+              </p>
+            </div>
+
+            <div style="border-top: 2px dashed #E5E7EB; padding-top: 0.9rem; font-size: 0.85rem; font-family: 'Space Grotesk'; display: flex; justify-content: space-between; align-items: center;">
+              <a href="https://maps.google.com/?q=Re-Animated+Records+8320+La+Mesa+Blvd+La+Mesa+CA+91942" target="_blank" rel="noopener noreferrer" style="color: var(--ink); font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-map-pin" style="color: var(--rose);"></i> 8320 La Mesa Blvd
+              </a>
+              <span style="font-weight: 700; color: var(--text-muted);">Oddball Finds <i class="fa-solid fa-compact-disc" style="color: var(--coral);"></i></span>
+            </div>
+          </div>
+
+          <!-- Shop 3: M-Theory Music -->
+          <div style="background: #F0FDF4; border: 3.5px solid var(--border-dark); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-box); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
+                <a href="https://maps.google.com/?q=M-Theory+Music+827+W+Washington+St+San+Diego+CA+92103" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: var(--bg-cream); border: 2px solid var(--border-dark); border-radius: var(--radius-pill); padding: 0.25rem 0.75rem; font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 0.35rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--rose-dark);"></i> Mission Hills
+                </a>
+                <span style="font-family: 'VT323'; font-size: 1.2rem; color: var(--panel-olive-dark); letter-spacing: 1px;">EST. 2001</span>
+              </div>
+              
+              <h3 style="font-family: 'Righteous', cursive; font-size: 1.5rem; color: var(--ink); margin: 0.25rem 0 0.5rem;">M-Theory Music</h3>
+              <div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.85rem; color: var(--panel-olive-dark); text-transform: uppercase; margin-bottom: 0.85rem;">
+                Indie &bull; Post-Punk &bull; Local SoCal Releases
+              </div>
+              
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                A neighborhood staple carrying everything from fresh indie pressings and Japanese imports to Southern California indie acts in the spirit of our afternoon rotations.
+              </p>
+            </div>
+
+            <div style="border-top: 2px dashed #E5E7EB; padding-top: 0.9rem; font-size: 0.85rem; font-family: 'Space Grotesk'; display: flex; justify-content: space-between; align-items: center;">
+              <a href="https://maps.google.com/?q=M-Theory+Music+827+W+Washington+St+San+Diego+CA+92103" target="_blank" rel="noopener noreferrer" style="color: var(--ink); font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-map-pin" style="color: var(--rose);"></i> 827 W Washington St
+              </a>
+              <span style="font-weight: 700; color: var(--text-muted);">Indie Picks <i class="fa-solid fa-compact-disc" style="color: var(--ink);"></i></span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Community Callout Banner -->
+        <div style="margin-top: 1.5rem; background: var(--bg-cream-tint); border: 2.5px solid var(--border-dark); border-radius: var(--radius-md); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 2px 3px 0 var(--border-dark);">
+          <div style="font-family: 'Space Grotesk'; font-size: 0.95rem; color: var(--text-muted);">
+            <strong style="color: var(--ink);">Got a private collection or local shop to spotlight?</strong> Drop a line to the station booth.
+          </div>
+          <a href="#contact" class="nav-pill" style="font-size: 0.85rem; padding: 0.35rem 1rem; text-decoration: none;">
+            <i class="fa-solid fa-paper-plane"></i> Send Tip
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Postcard Contact Form -->
+    <section class="section-wrap" id="contact">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fa-solid fa-paper-plane"></i> Listener Postbox</span>
+        <h2 class="section-heading">Contact the Station</h2>
+        <p class="section-desc">Have questions about song submissions, DJ guest mixes, advertising, or Left On Base? Send us a message.</p>
+        <div>
+          <button class="section-toggle-btn" data-target="contact-content" aria-expanded="true">
+            <i class="fa-solid fa-chevron-up"></i> <span>Minimize Contact</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Container for Contact -->
+      <div class="section-collapsible" id="contact-content">
+        <div class="postcard-wrapper">
+          <form action="https://formspree.io/f/xdaqdvpw" method="POST" id="postcardForm">
+            <label class="form-label" for="senderName">Your Name &amp; Neighborhood</label>
+            <input type="text" id="senderName" name="name" class="form-ctrl" placeholder="e.g., Diego from North Park" required>
+
+            <label class="form-label" for="senderEmail">Email Address</label>
+            <input type="email" id="senderEmail" name="email" class="form-ctrl" placeholder="e.g., yourname@domain.com" required>
+
+            <label class="form-label" for="subjectField">Subject / Track Request</label>
+            <input type="text" id="subjectField" name="subject" class="form-ctrl" placeholder="e.g., DJ Mix Inquiry / Track Submission">
+
+            <label class="form-label" for="messageNote">Note for the Control Room</label>
+            <textarea id="messageNote" name="message" class="form-ctrl" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <button type="submit" class="nav-pill" style="width: 100%; justify-content: center; background: var(--bg-header);">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+
+          <div style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div class="stamp-box">
+              <div style="font-family:'Righteous'; font-size:1.8rem; color:var(--rose);">98.7 KDJO</div>
+              <div style="font-weight:800; font-size:0.8rem; letter-spacing:2px;">SAN DIEGO, CALIFORNIA &bull; AIRMAIL</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">OFFICIAL STATION CORRESPONDENCE</div>
+            </div>
+
+            <div style="font-family:'Space Grotesk'; font-size:1rem; line-height:1.7;">
+              <p><strong>KDJO Radio Broadcast Studio</strong></p>
+              <p>San Diego, California</p>
+              <p>Daily Streaming: 6:00 AM – 2:00 AM PT</p>
+              <br>
+              <p><i class="fa-solid fa-envelope" style="color:var(--rose);"></i> Transmissions: <strong>booth@kdjo.org</strong></p>
+              <p><i class="fa-solid fa-globe" style="color:var(--rose);"></i> Official Web: <strong>kdjo.org</strong></p>
+            </div>
+
+            <div style="margin-top:1.5rem; padding-top:1rem; border-top:2px dashed #E5E7EB; font-size:0.85rem; color:var(--text-muted);">
+              Independent, community-oriented internet radio streaming out of Southern California.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div style="font-family:'Righteous'; font-size:2.4rem; color:var(--bg-header); line-height:1;">98.7 KDJO</div>
+        <div style="font-weight:800; font-size:0.85rem; letter-spacing:2px; color:var(--coral); margin: 6px 0 1rem;">SAN DIEGO INTERNET RADIO</div>
+        <p style="color:#A89B93; font-size:0.95rem; max-width:320px;">
+          An independent internet radio station streaming daily from 6 AM to 2 AM: San Diego sports talk, Left On Base, and DJ rotations.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Space Grotesk'; text-transform:uppercase; margin-bottom:1rem;">Explore</h4>
+        <div style="display:flex; flex-direction:column; gap:0.5rem; font-size:0.95rem; color:#D1C7C0;">
+          <a href="#tuner-station" style="color:inherit; text-decoration:none;">Live Radio</a>
+          <a href="#schedule" style="color:inherit; text-decoration:none;">Weekly Schedule</a>
+          <a href="#about-us" style="color:inherit; text-decoration:none;">DJs &amp; Selectors</a>
+          <a href="#left-on-base" style="color:inherit; text-decoration:none;">Left On Base Show</a>
+          <a href="#resident-artist" style="color:inherit; text-decoration:none;">Visual Designer</a>
+          <a href="about.html" class="footer-link" style="color:inherit; text-decoration:none;">About Us</a>
+          <a href="legal.html" class="footer-link" style="color:inherit; text-decoration:none;">DMCA</a>
+          <a href="privacy.html" class="footer-link" style="color:inherit; text-decoration:none;">Privacy Policy</a>
+          <a href="#" data-cookie-settings class="footer-link" style="color:inherit; text-decoration:none;">Cookie Settings</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Space Grotesk'; text-transform:uppercase; margin-bottom:1rem;">Archives</h4>
+        <div style="display:flex; flex-direction:column; gap:0.5rem; font-size:0.95rem; color:#D1C7C0;">
+          <a href="https://soundcloud.com/dojo_daniel" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">SoundCloud Sets</a>
+          <a href="https://dojodaniel.bandcamp.com" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">Bandcamp Vault</a>
+          <a href="https://www.mixcloud.com/DojoDaniel/" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">Mixcloud Replays</a>
+          <a href="#gallery" style="color:inherit; text-decoration:none;">Record Shops &amp; Crates</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Space Grotesk'; text-transform:uppercase; margin-bottom:1rem;">Connect</h4>
+        <p style="color:#A89B93; font-size:0.9rem; margin-bottom:1.2rem;">Follow our crate digging journeys and live tracklists.</p>
+        <div>
+          <a href="https://www.youtube.com/@LeftOnBaseFM" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://soundcloud.com/dojo_daniel" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+          <a href="https://dojodaniel.bandcamp.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Bandcamp"><i class="fa-brands fa-bandcamp"></i></a>
+          <a href="https://www.mixcloud.com/DojoDaniel/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Mixcloud"><i class="fa-brands fa-mixcloud"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:1.5rem; text-align:center; font-size:0.85rem; color:#8C7E75;">
+      &copy; KDJO 98.7 | San Diego Internet Radio. All rights reserved. &bull; <a href="legal.html" class="footer-link" style="color:#A89B93; text-decoration:underline;">DMCA</a> &bull; <a href="privacy.html" class="footer-link" style="color:#A89B93; text-decoration:underline;">Privacy Policy</a> &bull; <a href="#" data-cookie-settings class="footer-link" style="color:#A89B93; text-decoration:underline;">Cookie Settings</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true">
+    <div class="lightbox-box">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image popup"><i class="fa-solid fa-xmark"></i></button>
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="lightbox-img-holder">
+        <img src="" id="lightboxImg" alt="Expanded studio snapshot">
+      </div>
+      <div id="lightboxCaption" style="margin-top:1rem; font-weight:700; font-family:'Space Grotesk'; color:var(--ink);"></div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button (Right) -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scroll to Bottom Button (Left) -->
+  <button class="scroll-to-bottom" id="scrollToBottomBtn" aria-label="Scroll to bottom of page">
+    <i class="fa-solid fa-arrow-down"></i>
+  </button>
+
+  <!-- Interactive Action Toast -->
+  <div class="toast-pill" id="actionToast">
+    <span id="toastMsg">Tuned to 98.7 KDJO!</span>
+  </div>
+
+  <!-- External JavaScript Files -->
+  <script src="assets/js/script.js?v=9"></script>
+  <script src="assets/js/schedule.js?v=999"></script>
+
+  <!-- Auto-select Current Day in Schedule -->
+  <script>
+    (function() {
+      function activateCurrentDay() {
+        const daysOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        const currentDay = daysOfWeek[new Date().getDay()];
+        const todayButton = document.querySelector(`.day-tab-btn[data-day="${currentDay}"]`);
+
+        if (todayButton) {
+          document.querySelectorAll('.day-tab-btn').forEach(btn => btn.classList.remove('active'));
+          todayButton.classList.add('active');
+          todayButton.click();
+          return true;
+        }
+        return false;
+      }
+
+      window.addEventListener('load', function() {
+        if (!activateCurrentDay()) {
+          setTimeout(activateCurrentDay, 150);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Scroll to Bottom Controller -->
+  <script>
+    (function() {
+      const scrollBottomBtn = document.getElementById('scrollToBottomBtn');
+      if (!scrollBottomBtn) return;
+
+      function checkScrollBottom() {
+        const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollTotal > 300 && window.scrollY < scrollTotal - 250) {
+          scrollBottomBtn.classList.add('show');
+        } else {
+          scrollBottomBtn.classList.remove('show');
+        }
+      }
+
+      window.addEventListener('scroll', checkScrollBottom, { passive: true });
+      window.addEventListener('resize', checkScrollBottom);
+      window.addEventListener('load', checkScrollBottom);
+      checkScrollBottom();
+
+      scrollBottomBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth'
+        });
+      });
+    })();
+  </script>
+
+  <!-- Self-Contained Minimize Controller (Sections, Individual Boxes & Master DJ Toggle) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Primary Section Toggle Buttons
+      document.querySelectorAll('.section-toggle-btn:not(#masterDjToggleBtn)').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('data-target');
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+
+          const isNowCollapsed = targetEl.classList.toggle('minimized');
+          this.setAttribute('aria-expanded', !isNowCollapsed);
+
+          const parentSec = this.closest('.section-wrap');
+          if (parentSec) {
+            parentSec.classList.toggle('is-minimized', isNowCollapsed);
+          }
+
+          const icon = this.querySelector('i');
+          const text = this.querySelector('span');
+
+          if (isNowCollapsed) {
+            if (icon) icon.className = 'fa-solid fa-chevron-down';
+            if (text) text.textContent = text.textContent.replace('Minimize', 'Expand');
+          } else {
+            if (icon) icon.className = 'fa-solid fa-chevron-up';
+            if (text) text.textContent = text.textContent.replace('Expand', 'Minimize');
+          }
+        });
+      });
+
+      // Master Minimize / Expand All DJs Controller
+      const masterDjBtn = document.getElementById('masterDjToggleBtn');
+      if (masterDjBtn) {
+        masterDjBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const isCurrentlyExpanded = this.getAttribute('aria-expanded') === 'true';
+          const shouldCollapse = isCurrentlyExpanded;
+
+          const djBoxes = document.querySelectorAll('#about-content .dj-box');
+          djBoxes.forEach(function(box) {
+            const collapsible = box.querySelector('.box-collapsible');
+            const toggleBtn = box.querySelector('.box-toggle-btn');
+            const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
+            const text = toggleBtn ? toggleBtn.querySelector('span') : null;
+
+            if (shouldCollapse) {
+              if (collapsible) collapsible.classList.add('minimized');
+              box.classList.add('is-minimized');
+              if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+              if (icon) icon.className = 'fa-solid fa-chevron-down';
+              if (text) text.textContent = text.textContent.replace('Minimize', 'Expand');
+            } else {
+              if (collapsible) collapsible.classList.remove('minimized');
+              box.classList.remove('is-minimized');
+              if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+              if (icon) icon.className = 'fa-solid fa-chevron-up';
+              if (text) text.textContent = text.textContent.replace('Expand', 'Minimize');
+            }
+          });
+
+          // Ensure the section wrapper is expanded so user sees the collapsed or expanded boxes
+          const aboutContent = document.getElementById('about-content');
+          if (aboutContent && aboutContent.classList.contains('minimized')) {
+            aboutContent.classList.remove('minimized');
+            const secToggle = document.querySelector('.section-toggle-btn[data-target="about-content"]');
+            if (secToggle) {
+              secToggle.setAttribute('aria-expanded', 'true');
+              const sIcon = secToggle.querySelector('i');
+              const sText = secToggle.querySelector('span');
+              if (sIcon) sIcon.className = 'fa-solid fa-chevron-up';
+              if (sText) sText.textContent = sText.textContent.replace('Expand', 'Minimize');
+            }
+            const parentSec = aboutContent.closest('.section-wrap');
+            if (parentSec) parentSec.classList.remove('is-minimized');
+          }
+
+          // Update Master Button State
+          this.setAttribute('aria-expanded', !shouldCollapse);
+          const mIcon = this.querySelector('i');
+          const mText = this.querySelector('span');
+          if (shouldCollapse) {
+            if (mIcon) mIcon.className = 'fa-solid fa-chevron-down';
+            if (mText) mText.textContent = 'Expand All';
+          } else {
+            if (mIcon) mIcon.className = 'fa-solid fa-chevron-up';
+            if (mText) mText.textContent = 'Minimize All';
+          }
+        });
+      }
+
+      // Individual DJ, Visual Designer & Lead Station Card Box Toggle Buttons
+      document.querySelectorAll('.box-toggle-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('data-target');
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+
+          const isNowCollapsed = targetEl.classList.toggle('minimized');
+          this.setAttribute('aria-expanded', !isNowCollapsed);
+
+          const parentBox = this.closest('.dj-box');
+          if (parentBox) {
+            parentBox.classList.toggle('is-minimized', isNowCollapsed);
+          }
+
+          const icon = this.querySelector('i');
+          const text = this.querySelector('span');
+
+          if (isNowCollapsed) {
+            if (icon) icon.className = 'fa-solid fa-chevron-down';
+            if (text) text.textContent = text.textContent.replace('Minimize', 'Expand');
+          } else {
+            if (icon) icon.className = 'fa-solid fa-chevron-up';
+            if (text) text.textContent = text.textContent.replace('Expand', 'Minimize');
+          }
+        });
+      });
+
+      window.addEventListener('hashchange', function() {
+        const hash = window.location.hash;
+        if (!hash) return;
+        const targetSec = document.querySelector(hash);
+        if (targetSec && targetSec.classList.contains('is-minimized')) {
+          const toggleBtn = targetSec.querySelector('.section-toggle-btn');
+          if (toggleBtn) toggleBtn.click();
+        }
+      });
+    });
+  </script>
+
+  <!-- Dynamic YouTube Video & Player Listeners -->
+  <script>
+    let latestVideoId = "0T7W1_Bm0DY";
+
+    fetch('/latest-video.php')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data && data.videoId) {
+          latestVideoId = data.videoId;
+          const thumb = document.getElementById('yt-thumb');
+          if (thumb) {
+            thumb.src = "https://img.youtube.com/vi/" + data.videoId + "/hqdefault.jpg";
+          }
+        }
+      })
+      .catch(function(err) {
+        console.log('Using default video ID fallback:', err);
+      });
+
+    function loadYouTubeVideo() {
+      const container = document.getElementById('yt-facade');
+      if (!container) return;
+      container.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${latestVideoId}?autoplay=1" title="Left On Base Show" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    }
+  </script>
+</body>
+</html>

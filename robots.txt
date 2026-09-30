@@ -1,0 +1,22 @@
+# robots.txt for https://kdjo.org/
+
+# Google AdSense crawler: let it read every public page so it can review
+# the site and match ads to the content.
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /admin/
+
+# All other crawlers
+User-agent: *
+Allow: /
+
+# Keep crawlers out of admin areas, the live audio stream, and backend endpoints
+Disallow: /admin/
+Disallow: /stream
+Disallow: /ws
+Disallow: /api/
+
+# Do NOT block /assets/ (CSS, JS, images, schedule.json): Google needs them
+# to render the page and judge its content.
+
+Sitemap: https://kdjo.org/sitemap.xml
